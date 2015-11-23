@@ -1,11 +1,3 @@
-class MyComponent extends React.Component {
-  render(){
-    return(
-      <h2>from MyComponent</h2>
-    );
-  }
-}
-
 
 let documentReady = () => {
   ReactDOM.render(

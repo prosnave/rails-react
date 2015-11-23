@@ -1,5 +1,9 @@
 var Greeting = React.createClass({
   render: function () {
-    return <h1>Hi {this.props.name} from Greeting component !</h1>;
+    return (
+        <ul className="collection">
+          <li className="collection-item">{this.props.name}</li>
+        </ul>
+      );
   }
 });
