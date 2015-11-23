@@ -1,14 +1,23 @@
 class Main extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { contacts : sampleContacts };
+    this.state = { contacts : [] };
   }
   
   addContact (thename, telephone){
-   
-   let newContacts = this.state.contacts;
-   newContacts.unshift({ id: Date.now(), name:thename, tel:telephone });
-    this.setState({ contacts: []});
+   $.post("/contacts", {name:thename, tel:telephone})
+   .success(savedContact => {
+      let newContacts = this.state.contacts;
+      newContacts.unshift(savedContact);
+      this.setState({ contacts: newContacts});
+   })
+   .error(error => console.log(error));
+  }
+  
+  componentDidMount(){
+    $.ajax("/contacts")
+    .success(data => this.setState({contacts: data}))
+    .error(error => console.log(error));
   }
   
   render(){
@@ -21,13 +30,14 @@ class Main extends React.Component {
         
         <Myform sendContact = {this.addContact.bind(this)}/>
         
-        <Contacts contacts={sampleContacts}/>
+        <Mycontact contacts={this.state.contacts}/>
            
       </div>
     );
   }
 }
 
+  
   
 let documentReady = () => {
   ReactDOM.render(
