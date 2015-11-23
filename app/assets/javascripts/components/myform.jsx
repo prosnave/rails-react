@@ -1,17 +1,26 @@
 class Myform extends React.Component {
+  
+  sendContact (e){
+    e.preventDefault();
+    this.props.sendContact(this.refs.first_name.value, this.refs.the_telephone.value );
+    
+    this.refs.first_name.value = '';
+    this.refs.the_telephone.value = '';
+  }
+  
   render(){
     return(
       <div className="row">
-        <form className="col s12">
+        <form className="col s12" onSubmit={this.sendContact.bind(this)}>
           <div className="row">
             <div className="input-field col s6">
               <i className="material-icons prefix">account_circle</i>
-              <input id="first_name" type="text" className="validate" />
+              <input ref="first_name" type="text" className="validate" />
               <label htmlFor="first_name">First Name</label>
             </div>
             <div className="input-field col s6">
               <i className="material-icons prefix">phone</i>
-              <input id="icon_telephone" type="tel" className="validate" />
+              <input ref="the_telephone" type="tel" className="validate" />
               <label htmlFor="icon_telephone">Telephone</label>
             </div>
           </div>
