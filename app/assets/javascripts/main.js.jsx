@@ -7,8 +7,8 @@ class Main extends React.Component {
   addContact (thename, telephone){
    
    let newContacts = this.state.contacts;
-   newContacts.unshift({ name:thename, tel:telephone });
-    this.setState({ contacts: newContacts});
+   newContacts.unshift({ id: Date.now(), name:thename, tel:telephone });
+    this.setState({ contacts: []});
   }
   
   render(){
@@ -28,12 +28,6 @@ class Main extends React.Component {
   }
 }
 
-let sampleContacts = [
-  {name:"Maryanne", tel: "012121212"},
-  {name:"Anne", tel: "54521212"},
-  {name:"Steve", tel: "09912212"}  
-];
-  
   
 let documentReady = () => {
   ReactDOM.render(

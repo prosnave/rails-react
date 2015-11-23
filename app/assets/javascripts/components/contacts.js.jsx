@@ -1,6 +1,6 @@
 var Contacts = React.createClass({
   render: function () {
-    let contactsdata = this.props.contacts.map(contact => < ContactList key={contact.tel} {...contact} />)
+    let contactsdata = this.props.contacts.map(contact => < ContactList key={contact.id} {...contact} />);
     return (
       <div className="col s12 m5">
         <div className="card-panel teal lighten-2">
