@@ -1,4 +1,4 @@
-class MyComponent extends React.Component {
+class Myform extends React.Component {
   render(){
     return(
       <div className="row">
@@ -15,7 +15,7 @@ class MyComponent extends React.Component {
               <label htmlFor="icon_telephone">Telephone</label>
             </div>
           </div>
-          <button className="btn waves-effect waves-light" type="submit" name="action">Submit
+          <button className="btn waves-effect waves-light right" type="submit" name="action">Submit
               <i className="material-icons right">send</i>
             </button>
         </form>
